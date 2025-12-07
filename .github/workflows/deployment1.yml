@@ -1,5 +1,10 @@
 name: Deployment Excercise 1
-on: push
+on:
+  pull_requests:
+    types:
+      - opened
+      - closed
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
