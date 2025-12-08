@@ -1,9 +1,20 @@
 name: Deployment Excercise 1
 on:
-  pull_requests:
+  pull_request:
     types:
       - opened
-      - closed
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/**' # feat/new feat/new/button
+  push:
+    branches:
+      - main
+      - sonar-cqa
+      - 'dev-*'
+      - 'feat/**'
+    paths-ignore:
+      - '.github/workflows/*'
   workflow_dispatch:
 jobs:
   deploy:
